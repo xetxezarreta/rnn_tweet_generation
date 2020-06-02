@@ -19,10 +19,10 @@ result = ""
 for i in range(140):
     x = np.reshape(pattern, (1, len(pattern), 1))
     x = x / float(n_vocab)
-    prediction = model.predict(x, verbose=0)
-    index = np.argmax(prediction)
+    prediction = model.predict(x, verbose=0)    
     # https://stackoverflow.com/questions/47125723/keras-lstm-for-text-generation-keeps-repeating-a-line-or-a-sequence
     #index = np.random.choice(len(prediction[0]), p=prediction[0])
+    index = np.argmax(prediction)
     result += int_to_char[index]
     seq_in = [int_to_char[value] for value in pattern]
     pattern.append(index)
